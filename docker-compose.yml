@@ -2,16 +2,20 @@ version: "2"
 services:
   backend:
     build: ./backend
+    env_file:
+      - .env
     ports:
-      - "80:80"
+      - "${BKT_PORT}:80"
     depends_on:
       - mongo
     volumes:
       - .:/opt/app/backend
   frontend:
     build: ./frontend
+    env_file:
+      - .env
     ports:
-      - "81:81"
+      - "${FRT_PORT}:81"
     depends_on:
       - mongo
     volumes:
@@ -19,7 +23,7 @@ services:
   mongo:
     image: mongo
     ports:
-      - "27017:27017"
+      - "${MNG_PORT}:27017"
     volumes:
       - mongodata:/data/db
 
