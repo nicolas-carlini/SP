@@ -1,0 +1,29 @@
+version: "2"
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "80:8080"
+    depends_on:
+      - mongo
+    volume:
+      - .:/opt/app/backend
+      -/opt/app/backend/node_modules
+  frontend:
+    build: ./frontend
+    ports:
+      - "80:8080"
+    depends_on:
+      - mongo
+    volume:
+      - .:/opt/app/frontend
+      -/opt/app/frontend/node_modules
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
+    volume:
+      -mongodata:/data/db
+
+volumes:
+  mongodata:
