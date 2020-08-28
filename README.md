@@ -1,2 +1,6 @@
-# SPbackend
-Saturno Proyect backend, use nodejs
+# SP
+Saturno Proyect 
+
+backend: use nodejs
+
+frontend: use svelte
