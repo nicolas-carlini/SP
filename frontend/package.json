@@ -1,5 +1,5 @@
 {
-  "name": "backend",
+  "name": "frontend",
   "version": "1.0.0",
   "description": "backend of SP",
   "main": "src/index.js",

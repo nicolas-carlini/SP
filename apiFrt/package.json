@@ -1,5 +1,5 @@
 {
-  "name": "backend",
+  "name": "apiFrt",
   "version": "1.0.0",
   "description": "backend of SP",
   "main": "src/index.js",

@@ -2,12 +2,13 @@ const express = require('express');
 const app = express();
 const port = process.env.FRT_PORT;
 const axios = require('axios');
+const msPort = require('./config/ipservices')
 
 app.get('/', (req, res) => {
-  axios.get('http://192.168.1.2:81')
+  axios.get('https://jsonplaceholder.typicode.com/todos/1')
   .then(function (response) {
     
-    res.send(`${process.env.NAME}! ${response.data.ms}`);
+    res.send(`${process.env.NAME}! ${response.data.userId}`);
 
   })
   .catch(function (error) {

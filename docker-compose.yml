@@ -91,10 +91,14 @@ services:
 
   mongo:
     image: mongo
+    env_file:
+      - .env
     ports:
       - "$MNG_PORT:27017"
     volumes:
       - mongodata:/data/db
+    logging:
+      driver: $MNG_LOGS
     networks:
       backend:
         ipv4_address: "192.168.0.5"
