@@ -6,8 +6,22 @@ volumes:
 networks: 
   frontend:
     driver: bridge
+    driver_opts:
+      parent: eth1.87
+    ipam:
+      config:
+        - subnet: "192.168.1.0/24"
+          gateway: "192.168.1.1"
+          ip_range: 192.168.1.0/24
   backend:
     driver: bridge
+    driver_opts:
+      parent: eth0
+    ipam:
+      config:
+        - subnet: "192.168.0.0/24"
+          gateway: "192.168.0.1"
+          ip_range: 192.168.0.0/24
 
 services:
 
@@ -22,7 +36,8 @@ services:
     volumes:
       - .:/opt/app/apiSo
     networks:
-      - backend
+      backend:
+        ipv4_address: "192.168.0.2"
     environment:
     - NAME=apiso
 
@@ -37,8 +52,10 @@ services:
     volumes:
       - .:/opt/app/apiFrt
     networks:
-      - backend
-      - frontend
+      backend:
+        ipv4_address: "192.168.0.3"
+      frontend:
+        ipv4_address: "192.168.1.2"
     environment:
     - NAME=apifrt
 
@@ -53,7 +70,8 @@ services:
     volumes:
       - .:/opt/app/apiDB
     networks:
-      - backend
+      backend:
+        ipv4_address: "192.168.0.4"
     environment:
     - NAME=apidb
 
@@ -68,7 +86,8 @@ services:
     volumes:
       - .:/opt/app/frontend
     networks:
-      - frontend
+      frontend:
+        ipv4_address: "192.168.1.3"
     environment:
     - NAME=frontend
 
@@ -78,3 +97,6 @@ services:
       - "$MNG_PORT:27017"
     volumes:
       - mongodata:/data/db
+    networks:
+      backend:
+        ipv4_address: "192.168.0.5"
