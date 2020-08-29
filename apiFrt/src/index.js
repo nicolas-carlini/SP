@@ -3,8 +3,7 @@ const app = express();
 const port = process.env.APIFRT_PORT;
 
 app.get('/', (req, res) => {
-  res.send(`${process.env.NAME}!`);
-
+  res.json({ms:process.env.NAME});
 })
 
 app.listen(port, () => {

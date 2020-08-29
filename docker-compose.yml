@@ -7,12 +7,11 @@ networks:
   frontend:
     driver: bridge
     driver_opts:
-      parent: eth1.87
+      parent: eth0
     ipam:
       config:
         - subnet: "192.168.1.0/24"
-          gateway: "192.168.1.1"
-          ip_range: 192.168.1.0/24
+
   backend:
     driver: bridge
     driver_opts:
@@ -20,8 +19,7 @@ networks:
     ipam:
       config:
         - subnet: "192.168.0.0/24"
-          gateway: "192.168.0.1"
-          ip_range: 192.168.0.0/24
+
 
 services:
 
