@@ -23,6 +23,8 @@ services:
       - .:/opt/app/apiSo
     networks:
       - backend
+    environment:
+    - NAME=apiso
 
   apifrt:
     build: ./apiFrt
@@ -37,6 +39,8 @@ services:
     networks:
       - backend
       - frontend
+    environment:
+    - NAME=apifrt
 
   apidb:
     build: ./apiDB
@@ -50,6 +54,8 @@ services:
       - .:/opt/app/apiDB
     networks:
       - backend
+    environment:
+    - NAME=apidb
 
   frontend:
     build: ./frontend
@@ -63,6 +69,8 @@ services:
       - .:/opt/app/frontend
     networks:
       - frontend
+    environment:
+    - NAME=frontend
 
   mongo:
     image: mongo

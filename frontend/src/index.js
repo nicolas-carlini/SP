@@ -3,7 +3,7 @@ const app = express();
 const port = process.env.FRT_PORT;
 
 app.get('/', (req, res) => {
-  res.send('frontend');
+  res.send(`${process.env.NAME}!`);
 })
 
 app.listen(port, () => {

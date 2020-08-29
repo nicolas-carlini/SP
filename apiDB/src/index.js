@@ -1,9 +1,9 @@
 const express = require('express');
 const app = express();
-const port = process.env.BKT_PORT;
+const port = process.env.APIDB_PORT;
 
 app.get('/', (req, res) => {
-  res.send('backend!');
+  res.send(`${process.env.NAME}!`);
 })
 
 app.listen(port, () => {
