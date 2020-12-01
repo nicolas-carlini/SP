@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = process.env.APISO_PORT;
+const port = process.env.ASO_PORT;
 
 app.get('/', (req, res) => {
   res.send(`${process.env.NAME}!`);

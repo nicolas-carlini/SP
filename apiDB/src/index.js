@@ -1,9 +1,10 @@
 const express = require('express');
 const app = express();
-const port = process.env.APIDB_PORT;
+const port = process.env.ADB_PORT;
 const Test = require("./models/test");
 var faker = require('faker');
 require("./database");
+
 
 app.get('/', async (req, res) => {
 

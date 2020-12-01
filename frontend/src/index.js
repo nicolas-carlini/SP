@@ -1,8 +1,7 @@
 const express = require('express');
 const app = express();
-const port = process.env.FRT_PORT;
+const port = process.env.AFRT_PORT;
 const axios = require('axios');
-const msPort = require('./config/ipservices')
 
 app.get('/', (req, res) => {
   axios.get('https://jsonplaceholder.typicode.com/todos/1')
